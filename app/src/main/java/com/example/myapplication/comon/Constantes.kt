@@ -6,4 +6,6 @@ object Constantes {
     const val ID_SEARSH_PARAM = "userId"
     const val USERS_API_ENDPOINT = "users"
     const val USER_BY_ID_API_ENDPOINT = "users/{$ID_SEARSH_PARAM}"
+    const val DB_VERSION = 1
+    const val DB_NAME = "local_github_users"
 }
