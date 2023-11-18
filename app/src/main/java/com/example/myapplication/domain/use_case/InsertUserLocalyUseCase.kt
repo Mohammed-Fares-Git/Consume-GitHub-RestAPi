@@ -10,10 +10,10 @@ import javax.inject.Inject
 class InsertUserLocalyUseCase @Inject constructor(
     val localeRepository: LocalRepository
 ){
-    operator fun invoke(user: GithubUser): Flow<Resource<Boolean>> = flow {
+    operator fun invoke(user: GithubUser): Flow<Resource<Long>> = flow {
         try {
             val insert = localeRepository.insert(user)
-            if (insert) {
+            if (insert != -1L) {
                 emit(Resource.Success(insert,"added seccessfuly"))
             } else {
                 emit(Resource.Error("an error occures"))

@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class getUsersLocalyUseCase @Inject constructor(
+class DeleteUserUseCase @Inject constructor(
     val localeRepository: LocalRepository
 ){
-    operator fun invoke(user: GithubUser): Flow<Resource<Boolean>> = flow {
+    operator fun invoke(user: GithubUser): Flow<Resource<Long>> = flow {
         try {
             val delete = localeRepository.delete(user)
-            if (delete) {
+            if (delete.toInt() != -1) {
                 emit(Resource.Success(delete,"deleted seccessfuly"))
             } else {
                 emit(Resource.Error("an error occures"))

@@ -11,10 +11,10 @@ import com.example.myapplication.domain.model.GithubUser
 interface GithubUserDao {
 
     @Insert
-    suspend fun insertUser(user: GithubUser): Boolean
+    suspend fun insertUser(user: GithubUser): Long
 
     @Delete
-    suspend fun deleteUser(user: GithubUser): Boolean
+    suspend fun deleteUser(user: GithubUser): Long
 
     @Query("SELECT * FROM ${Constantes.GITHUB_USERS_TABLE}")
     fun getAllUsers():List<GithubUser>

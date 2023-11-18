@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class deleteUserLocalyUseCase @Inject constructor(
+class GetUsersLocalyUseCase @Inject constructor(
     val localeRepository: LocalRepository
 ){
     operator fun invoke(user: GithubUser): Flow<Resource<List<GithubUser>>> = flow {

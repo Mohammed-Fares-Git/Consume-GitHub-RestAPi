@@ -8,11 +8,11 @@ import javax.inject.Inject
 class LocaleRepositoryIMPL @Inject constructor(
     val db: LocalUsers
 ): LocalRepository {
-    override suspend fun insert(user: GithubUser): Boolean {
+    override suspend fun insert(user: GithubUser): Long {
         return db.loacalUserDao().insertUser(user)
     }
 
-    override suspend fun delete(user: GithubUser): Boolean {
+    override suspend fun delete(user: GithubUser): Long {
         return db.loacalUserDao().deleteUser(user)
     }
 
